@@ -1,10 +1,7 @@
----
-title: "An Introduction to Monte Carlo Methods in Finance"
-runtime: shiny
-smaller: true
----
+#+title: "An Introduction to Monte Carlo Methods in Finance"
 
-## Monte Carlo: Solution by Simulation
+
+** Monte Carlo: Solution by Simulation
 
 The goal of this presentation is to show you when to use Monte Carlo and to provide a couple of interactive examples with visualizations.
 
@@ -12,7 +9,7 @@ The goal of this presentation is to show you when to use Monte Carlo and to prov
 
  
 
-## Monte Carlo and Analytic Solutions
+** Monte Carlo and Analytic Solutions
 
 When an analytic solution is available, you should generally use it. 
 
@@ -23,7 +20,7 @@ When an analytic solution is available, you should generally use it.
 
  
 
-## Example: European Option Pricing
+** Example: European Option Pricing
 
 Assuming a stockprice follows a [geometric Brownian Motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion), then at time $T$ in the future we have: 
 
@@ -37,7 +34,7 @@ where $S_0$ is the stock price today, $\mu$ and $\sigma$ are the stock's drift a
 
  
 
-## Drift and Volatility
+** Drift and Volatility
 
 We estimate volatility $\sigma$ using [historical or forward looking measures](https://micfm.shinyapps.io/risk_future_past_mobile/).  However, in a [Black-Scholes world](http://www.5minutefinance.org/concepts/black-scholes) the market is complete, and so we can set the drift $\mu$ equal to the risk free rate $r_f$.  
 
@@ -49,7 +46,7 @@ where $N(0, 1)$ is a random draw from a standard Normal distribution.
 
  
 
-## Interactive App
+** Interactive App
 
 In both cases we make the same assumptions, namely the stock follows geometric Brownian Motion, $\sigma$ is a constant, and the [market is complete.](https://en.wikipedia.org/wiki/Complete_market). Therefore the Monte Carlo estimate should be equal to the Black-Scholes analytic solution, which is: $C_0 = S_0N(d_1) - Xe^{-rT}N(d_2)$
 
@@ -70,15 +67,15 @@ $C_0$ are $S_0$ are the values of the call option and underlying stock at time 0
 
  
 
-##
+**
 
 ```{r echo = FALSE}
 #{{{
 max.rands <- 1000000
 inputPanel(
     sliderInput(inputId = "rands", label = "Number of Random Numbers in Monte Carlo", min = 50, max = max.rands, step = 10000, value = 50, animate = TRUE)
-    ## numericInput(inputId = "seed", label = "Set Seed (to make reproducible)", value = 1, min = 1, max = 99999999)
-    ## add radioButton input for antithetic sampling?
+    ** numericInput(inputId = "seed", label = "Set Seed (to make reproducible)", value = 1, min = 1, max = 99999999)
+    ** add radioButton input for antithetic sampling?
 )
 
 S <- 50
@@ -110,7 +107,7 @@ call.bs <- pnorm(d1) * S - pnorm(d2) * K * exp(-r * T)
 
 renderPlot({ 
     subset.calls <- exp(-r*T)*calls[1:input$rands]
-### possibly change output from a density -- something which also shows the variability of the estimate.
+**# possibly change output from a density -- something which also shows the variability of the estimate.
     hist(subset.calls, main = paste0("Call Premium $", round(mean(subset.calls), 2)), xlab = "Call Option Value", breaks = 100, freq = FALSE, width = "100%")
     legend('topright', c(paste0("Black-Scholes Value $", round(call.bs, 2)), paste0("Difference $", round(abs(call.bs - mean(subset.calls)), 2))))
 })
@@ -120,7 +117,7 @@ renderPlot({
  
 
 
-## Pricing Path-Dependent Options
+** Pricing Path-Dependent Options
 
 As mentioned, Monte Carlo makes sense when an analytic solution is unavailable or its solution is intractable.  This is often the case for *path-dependent* options, where payoffs are a function of the stock prices over some interval---the path the stock took to get to its present price.  Examples of such options are:
 
@@ -132,7 +129,7 @@ As mentioned, Monte Carlo makes sense when an analytic solution is unavailable o
 
  
 
-## Lookback Option
+** Lookback Option
 
 Say an option pays the difference between the *maximum* price of a security over a time period and a set strike price.  So the payoff is: $max(S_{max} - X, 0)$ where $S_{max}$ is the maximum security price over a set interval.  This is a European lookback call option with a fixed strike price (you can also let the strike price float).  
 
@@ -146,7 +143,7 @@ $dS_t = \kappa(\mu_S - S_t)dt + \sigma S_t dB_t$
 
  
 
-## Monte Carlo Setup
+** Monte Carlo Setup
 
 Given the parameters $\mu_S$, $\kappa$, and $\sigma$, and a starting price, we'll simulate various price paths.  We'll calculate the maximum over each of these price paths, which will give us the lookback call option payoff given the path.  Taking the average value and discounting at the risk-free rate (assuming a complete market) affords the lookback call option's value.  
 
@@ -154,7 +151,7 @@ Given the parameters $\mu_S$, $\kappa$, and $\sigma$, and a starting price, we'l
 
  
 
-## Monte Carlo Setup
+** Monte Carlo Setup
 
 In the next slide we'll price a lookback call with 1 year to maturity, on a security with a \$35 price today. The strike price is \$37, and we will simulate a price path with 252 points (one for each trading day of the year).  For each 
 
@@ -163,24 +160,24 @@ In the next slide we'll price a lookback call with 1 year to maturity, on a secu
 
  
 
-##
+**
 
 ```{r echo = FALSE}
 #{{{
-## Parameters
+** Parameters
 
-## Equation: dSt = k(mu - lnSt)dt + sigmaStdBt
+** Equation: dSt = k(mu - lnSt)dt + sigmaStdBt
 inputPanel(
-    ## sliderInput("numsim", "Number of Paths to Simulate", min = 1000, max = 100000, value = 10000, step = 100),
+    ** sliderInput("numsim", "Number of Paths to Simulate", min = 1000, max = 100000, value = 10000, step = 100),
     sliderInput("paramK", "k Parameter", min = .01, max = .8, value = .2, step = .01),
     sliderInput("paramMu", "Average Price", min = 10, max = 50, value = 30, step = 1),
     sliderInput("paramSigma", "Sigma Parameter", min = .01, max = .2, value = .05, step = .01)
-    ## sliderInput("strike1", "Strike Price", min = 10, max = 100, value = 35, step = 5)    
+    ** sliderInput("strike1", "Strike Price", min = 10, max = 100, value = 35, step = 5)    
 )
 
 renderPlot({
 
-    ## nsim <- input$numsim
+    ** nsim <- input$numsim
     nsim <- 1000
     k <- input$paramK
     mu <- input$paramMu
@@ -188,9 +185,9 @@ renderPlot({
     sigma <- input$paramSigma
     days <- 252
 
-### hacked into place pretty quick -- check to make sure I am not doing something stupid ----
+**# hacked into place pretty quick -- check to make sure I am not doing something stupid ----
 
-    ## strike <- input$strike1
+    ** strike <- input$strike1
     strike <- 37
     
     vol.per.period <- sigma / sqrt(days)
@@ -211,9 +208,9 @@ renderPlot({
 
     maxes <- apply(prices, 2, max)
 
-    ## assuming a complete market ----
+    ** assuming a complete market ----
 
-    ## payoffs
+    ** payoffs
 
     payoffs <- 0
     payoffs <- ifelse((maxes - strike) > 0, (maxes - strike), 0)
@@ -232,7 +229,7 @@ renderPlot({
 
  
 
-## Parting Note
+** Parting Note
 
 Monte Carlo is a good approach in the case where we don't have a closed-form solution give a particular underlying process.  However what if we do have a closed-form solution for a *continuous-time* process, but the lookback option samples the price at discrete points?
 
