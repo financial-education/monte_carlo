@@ -1,4 +1,8 @@
-#+title: "An Introduction to Monte Carlo Methods in Finance"
+#+title: An Introduction to Monte Carlo Methods in Finance
+#+author: Matt Brigida, Ph.D.
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
+#+PROPERTY: header-args    :exports none
 
 
 ** Monte Carlo: Solution by Simulation
@@ -7,8 +11,6 @@ The goal of this presentation is to show you when to use Monte Carlo and to prov
 
 -  The idea is that you should first have a good understanding of when Monte Carlo is useful before you dive into the math and mechanics of Monte Carlo.
 
- 
-
 ** Monte Carlo and Analytic Solutions
 
 When an analytic solution is available, you should generally use it. 
@@ -16,9 +18,6 @@ When an analytic solution is available, you should generally use it.
 -  If you make the same underlying assumptions, the analytic solution will be the same as the Monte Carlo, though the Monte Carlo solution will have estimation error.
 
 -  Monte Carlo is useful when an analytic solution is unavailable or difficult to obtain or when the underlying assumptions differ from a continuous-time solution. This is often the case, which makes Monte Carlo an important tool for analysts.
-
-
- 
 
 ** Example: European Option Pricing
 
@@ -30,9 +29,7 @@ where $S_0$ is the stock price today, $\mu$ and $\sigma$ are the stock's drift a
 
 -  Since $B_T \sim N(0, T)$, we can create random draws from $B_T$ by drawing from $N(0, 1)$ and multiplying by $T$. 
 
--  For each draw of $B_T$ we get a new value of $S_T$.  
-
- 
+-  For each draw of $B_T$ we get a new value of $S_T$.   
 
 ** Drift and Volatility
 
@@ -65,10 +62,9 @@ $C_0$ are $S_0$ are the values of the call option and underlying stock at time 0
 <!-- [when binomial option pricing presentation is complete, change link to slide on complete market].  -->
 -  On the next slide we calculate the value of a European call option by both the Black-Scholes formula and Monte Carlo.  
 
- 
+[TODO: Push app online and here]
 
-**
-
+#+begin_comment
 ```{r echo = FALSE}
 #{{{
 max.rands <- 1000000
@@ -113,8 +109,7 @@ renderPlot({
 })
 #}}}
 ```
-
- 
+#+end_comment 
 
 
 ** Pricing Path-Dependent Options
@@ -141,15 +136,12 @@ $dS_t = \kappa(\mu_S - S_t)dt + \sigma S_t dB_t$
 
 -  An analytic solution might be possible, but it may take a while to find. This is where it makes sense to turn to Monte Carlo.
 
- 
 
 ** Monte Carlo Setup
 
 Given the parameters $\mu_S$, $\kappa$, and $\sigma$, and a starting price, we'll simulate various price paths.  We'll calculate the maximum over each of these price paths, which will give us the lookback call option payoff given the path.  Taking the average value and discounting at the risk-free rate (assuming a complete market) affords the lookback call option's value.  
 
 -  Remember, here we need to simulate the entire security's path over the year, not just the terminal value like in the earlier valuation of a European call.
-
- 
 
 ** Monte Carlo Setup
 
@@ -158,10 +150,9 @@ In the next slide we'll price a lookback call with 1 year to maturity, on a secu
 -  You can set the $\kappa$, $\mu$, and $\sigma$ parameters using the slider inputs.  When you change any slider the Monte Carlo valuation is re-run.
 
 
- 
+[TODO: push path dependent option app online and insert here]
 
-**
-
+#+begin_comment
 ```{r echo = FALSE}
 #{{{
 ** Parameters
@@ -226,7 +217,7 @@ renderPlot({
 })
 #}}}
 ```
-
+#+end_comment
  
 
 ** Parting Note
