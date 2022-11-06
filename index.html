@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-05 Sat 20:11 -->
+<!-- 2022-11-05 Sat 20:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>An Introduction to Monte Carlo Methods in Finance</title>
@@ -45,23 +45,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7be8702">1. Monte Carlo: Solution by Simulation</a></li>
-<li><a href="#org51132a3">2. Monte Carlo and Analytic Solutions</a></li>
-<li><a href="#orgd42293c">3. Example: European Option Pricing</a></li>
-<li><a href="#orgcbca01f">4. Drift and Volatility</a></li>
-<li><a href="#org3a6c7bf">5. Interactive App</a></li>
-<li><a href="#org170d2e5">6. Pricing Path-Dependent Options</a></li>
-<li><a href="#orgc0dd463">7. Lookback Option</a></li>
-<li><a href="#orge6d85a5">8. Monte Carlo Setup</a></li>
-<li><a href="#orged86910">9. Monte Carlo Setup</a></li>
-<li><a href="#orge1518fa">10. Parting Note</a></li>
+<li><a href="#org03dcbe7">1. Monte Carlo: Solution by Simulation</a></li>
+<li><a href="#orgfece8dc">2. Monte Carlo and Analytic Solutions</a></li>
+<li><a href="#org8955367">3. Example: European Option Pricing</a></li>
+<li><a href="#orgcb88906">4. Drift and Volatility</a></li>
+<li><a href="#orge0d9975">5. Interactive App</a></li>
+<li><a href="#org10e257e">6. Pricing Path-Dependent Options</a></li>
+<li><a href="#org2d1e8e0">7. Lookback Option</a></li>
+<li><a href="#org4f06c63">8. Monte Carlo Setup</a></li>
+<li><a href="#org6adf1f0">9. Monte Carlo Setup</a></li>
+<li><a href="#orgde8c158">10. Parting Note</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org7be8702" class="outline-2">
-<h2 id="org7be8702"><span class="section-number-2">1.</span> Monte Carlo: Solution by Simulation</h2>
+<div id="outline-container-org03dcbe7" class="outline-2">
+<h2 id="org03dcbe7"><span class="section-number-2">1.</span> Monte Carlo: Solution by Simulation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The goal of this presentation is to show you when to use Monte Carlo and to provide a couple of interactive examples with visualizations.
@@ -73,8 +73,8 @@ The goal of this presentation is to show you when to use Monte Carlo and to prov
 </div>
 </div>
 
-<div id="outline-container-org51132a3" class="outline-2">
-<h2 id="org51132a3"><span class="section-number-2">2.</span> Monte Carlo and Analytic Solutions</h2>
+<div id="outline-container-orgfece8dc" class="outline-2">
+<h2 id="orgfece8dc"><span class="section-number-2">2.</span> Monte Carlo and Analytic Solutions</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 When an analytic solution is available, you should generally use it. 
@@ -88,11 +88,11 @@ When an analytic solution is available, you should generally use it.
 </div>
 </div>
 
-<div id="outline-container-orgd42293c" class="outline-2">
-<h2 id="orgd42293c"><span class="section-number-2">3.</span> Example: European Option Pricing</h2>
+<div id="outline-container-org8955367" class="outline-2">
+<h2 id="org8955367"><span class="section-number-2">3.</span> Example: European Option Pricing</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Assuming a stockprice follows a [geometric Brownian Motion](<a href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion">https://en.wikipedia.org/wiki/Geometric_Brownian_motion</a>), then at time \(T\) in the future we have: 
+Assuming a stockprice follows a <a href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion">geometric Brownian Motion</a>, then at time \(T\) in the future we have: 
 </p>
 
 <p>
@@ -111,11 +111,11 @@ where \(S_0\) is the stock price today, \(\mu\) and \(\sigma\) are the stock's d
 </div>
 </div>
 
-<div id="outline-container-orgcbca01f" class="outline-2">
-<h2 id="orgcbca01f"><span class="section-number-2">4.</span> Drift and Volatility</h2>
+<div id="outline-container-orgcb88906" class="outline-2">
+<h2 id="orgcb88906"><span class="section-number-2">4.</span> Drift and Volatility</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-We estimate volatility \(\sigma\) using [historical or forward looking measures](<a href="https://micfm.shinyapps.io/risk_future_past_mobile/">https://micfm.shinyapps.io/risk_future_past_mobile/</a>).  However, in a [Black-Scholes world](<a href="http://www.5minutefinance.org/concepts/black-scholes">http://www.5minutefinance.org/concepts/black-scholes</a>) the market is complete, and so we can set the drift \(\mu\) equal to the risk free rate \(r_f\).  
+We estimate volatility \(\sigma\) using historical or [maybe dead link &#x2013;&gt;] <a href="https://micfm.shinyapps.io/risk_future_past_mobile">forward looking measures</a>.  However, in <a href="https://financial-education.github.io/black_scholes/">a Black-Scholes world</a> the market is complete, and so we can set the drift \(\mu\) equal to the risk free rate \(r_f\).  
 </p>
 
 <ul class="org-ul">
@@ -134,8 +134,8 @@ where \(N(0, 1)\) is a random draw from a standard Normal distribution.
 
 
 
-<div id="outline-container-org3a6c7bf" class="outline-2">
-<h2 id="org3a6c7bf"><span class="section-number-2">5.</span> Interactive App</h2>
+<div id="outline-container-orge0d9975" class="outline-2">
+<h2 id="orge0d9975"><span class="section-number-2">5.</span> Interactive App</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 In both cases we make the same assumptions, namely the stock follows geometric Brownian Motion, \(\sigma\) is a constant, and the <a href="https://en.wikipedia.org/wiki/Complete_market">market is complete.</a> Therefore the Monte Carlo estimate should be equal to the Black-Scholes analytic solution, which is: \(C_0 = S_0N(d_1) - Xe^{-rT}N(d_2)\)
@@ -168,8 +168,8 @@ In both cases we make the same assumptions, namely the stock follows geometric B
 </div>
 
 
-<div id="outline-container-org170d2e5" class="outline-2">
-<h2 id="org170d2e5"><span class="section-number-2">6.</span> Pricing Path-Dependent Options</h2>
+<div id="outline-container-org10e257e" class="outline-2">
+<h2 id="org10e257e"><span class="section-number-2">6.</span> Pricing Path-Dependent Options</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 As mentioned, Monte Carlo makes sense when an analytic solution is unavailable or its solution is intractable.  This is often the case for <b>path-dependent</b> options, where payoffs are a function of the stock prices over some interval&#x2014;the path the stock took to get to its present price.  Examples of such options are:
@@ -187,8 +187,8 @@ As mentioned, Monte Carlo makes sense when an analytic solution is unavailable o
 
 
 
-<div id="outline-container-orgc0dd463" class="outline-2">
-<h2 id="orgc0dd463"><span class="section-number-2">7.</span> Lookback Option</h2>
+<div id="outline-container-org2d1e8e0" class="outline-2">
+<h2 id="org2d1e8e0"><span class="section-number-2">7.</span> Lookback Option</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Say an option pays the difference between the <b>maximum</b> price of a security over a time period and a set strike price.  So the payoff is: \(max(S_{max} - X, 0)\) where \(S_{max}\) is the maximum security price over a set interval.  This is a European lookback call option with a fixed strike price (you can also let the strike price float).  
@@ -211,8 +211,8 @@ Say an option pays the difference between the <b>maximum</b> price of a security
 </div>
 
 
-<div id="outline-container-orge6d85a5" class="outline-2">
-<h2 id="orge6d85a5"><span class="section-number-2">8.</span> Monte Carlo Setup</h2>
+<div id="outline-container-org4f06c63" class="outline-2">
+<h2 id="org4f06c63"><span class="section-number-2">8.</span> Monte Carlo Setup</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Given the parameters \(\mu_S\), \(\kappa\), and \(\sigma\), and a starting price, we'll simulate various price paths.  We'll calculate the maximum over each of these price paths, which will give us the lookback call option payoff given the path.  Taking the average value and discounting at the risk-free rate (assuming a complete market) affords the lookback call option's value.  
@@ -224,8 +224,8 @@ Given the parameters \(\mu_S\), \(\kappa\), and \(\sigma\), and a starting price
 </div>
 </div>
 
-<div id="outline-container-orged86910" class="outline-2">
-<h2 id="orged86910"><span class="section-number-2">9.</span> Monte Carlo Setup</h2>
+<div id="outline-container-org6adf1f0" class="outline-2">
+<h2 id="org6adf1f0"><span class="section-number-2">9.</span> Monte Carlo Setup</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 In the next slide we'll price a lookback call with 1 year to maturity, on a security with a \$35 price today. The strike price is \$37, and we will simulate a price path with 252 points (one for each trading day of the year).  For each 
@@ -243,8 +243,8 @@ In the next slide we'll price a lookback call with 1 year to maturity, on a secu
 </div>
 
 
-<div id="outline-container-orge1518fa" class="outline-2">
-<h2 id="orge1518fa"><span class="section-number-2">10.</span> Parting Note</h2>
+<div id="outline-container-orgde8c158" class="outline-2">
+<h2 id="orgde8c158"><span class="section-number-2">10.</span> Parting Note</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 Monte Carlo is a good approach in the case where we don't have a closed-form solution give a particular underlying process.  However what if we do have a closed-form solution for a <b>continuous-time</b> process, but the lookback option samples the price at discrete points?
@@ -270,7 +270,7 @@ So in this case, despite having a closed-form solution for a continuous process,
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2022-11-05 Sat 20:11</p>
+<p class="date">Created: 2022-11-05 Sat 20:18</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
