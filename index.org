@@ -4,6 +4,9 @@
 #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
 #+PROPERTY: header-args    :exports none
 
+#+begin_quote
+There is a revealjs version of this presentation under investments.
+#+end_quote
 
 ** Monte Carlo: Solution by Simulation
 
