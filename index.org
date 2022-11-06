@@ -45,9 +45,7 @@ where $N(0, 1)$ is a random draw from a standard Normal distribution.
 
 ** Interactive App
 
-In both cases we make the same assumptions, namely the stock follows geometric Brownian Motion, $\sigma$ is a constant, and the [market is complete.](https://en.wikipedia.org/wiki/Complete_market). Therefore the Monte Carlo estimate should be equal to the Black-Scholes analytic solution, which is: $C_0 = S_0N(d_1) - Xe^{-rT}N(d_2)$
-
-<div class ="columns-2">
+In both cases we make the same assumptions, namely the stock follows geometric Brownian Motion, $\sigma$ is a constant, and the [[https://en.wikipedia.org/wiki/Complete_market][market is complete.]] Therefore the Monte Carlo estimate should be equal to the Black-Scholes analytic solution, which is: $C_0 = S_0N(d_1) - Xe^{-rT}N(d_2)$
 
 *where*
 
@@ -57,9 +55,9 @@ $d_2 = d_1 - \sigma\sqrt(T)$
 
 $C_0$ are $S_0$ are the values of the call option and underlying stock at time 0.  $X$ is the strike price, and $T$ the time until option expiration in years.
 
-</div>
-
+#+begin_comment
 <!-- [when binomial option pricing presentation is complete, change link to slide on complete market].  -->
+#+end_comment
 -  On the next slide we calculate the value of a European call option by both the Black-Scholes formula and Monte Carlo.  
 
 [TODO: Push app online and here]
@@ -155,9 +153,9 @@ In the next slide we'll price a lookback call with 1 year to maturity, on a secu
 #+begin_comment
 ```{r echo = FALSE}
 #{{{
-** Parameters
+## Parameters
 
-** Equation: dSt = k(mu - lnSt)dt + sigmaStdBt
+## Equation: dSt = k(mu - lnSt)dt + sigmaStdBt
 inputPanel(
     ** sliderInput("numsim", "Number of Paths to Simulate", min = 1000, max = 100000, value = 10000, step = 100),
     sliderInput("paramK", "k Parameter", min = .01, max = .8, value = .2, step = .01),
