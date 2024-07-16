@@ -5,7 +5,7 @@
 #+PROPERTY: header-args    :exports none
 
 #+begin_quote
-There is a revealjs version of this presentation under investments.
+There is a revealjs version of this presentation under investments and here: https://financial-education.github.io/intro_monte_carlo_methods_in_finance/
 #+end_quote
 
 ** Monte Carlo: Solution by Simulation
@@ -40,7 +40,7 @@ We estimate volatility $\sigma$ using historical or [maybe dead link -->] [[http
 
 -  Therefore each simulated stock price at time $T$ is:
 
-$S_T = S_0 e^{(r_f - \frac{1}{2}\hat{\sigma}^2)T + \hat{\sigma} N(0, 1)T}$  
+$S_T = S_0 e^{(r_f - \frac{1}{2}\hat{\sigma}^2)T + \hat{\sigma} N(0, 1)\sqrt{T}}$  
 
 where $N(0, 1)$ is a random draw from a standard Normal distribution.
 
