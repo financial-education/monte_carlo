@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-07-15 Mon 20:47 -->
+<!-- 2024-07-19 Fri 09:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>An Introduction to Monte Carlo Methods in Finance</title>
@@ -56,16 +56,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2a9e6e3">1. Monte Carlo: Solution by Simulation</a></li>
-<li><a href="#orge974a5a">2. Monte Carlo and Analytic Solutions</a></li>
-<li><a href="#org7992412">3. Example: European Option Pricing</a></li>
-<li><a href="#org4139390">4. Drift and Volatility</a></li>
-<li><a href="#orgf016ec7">5. Interactive App</a></li>
-<li><a href="#org701b8a1">6. Pricing Path-Dependent Options</a></li>
-<li><a href="#org5cca14e">7. Lookback Option</a></li>
-<li><a href="#orgafad9d9">8. Monte Carlo Setup</a></li>
-<li><a href="#org7d71275">9. Monte Carlo Setup</a></li>
-<li><a href="#orgffaf986">10. Parting Note</a></li>
+<li><a href="#org241f3a0">1. Monte Carlo: Solution by Simulation</a></li>
+<li><a href="#org8314cf2">2. Monte Carlo and Analytic Solutions</a></li>
+<li><a href="#org35808ad">3. Example: European Option Pricing</a></li>
+<li><a href="#org6efc4f1">4. Drift and Volatility</a></li>
+<li><a href="#org8af7a78">5. Interactive App</a></li>
+<li><a href="#org9d76f68">6. Pricing Path-Dependent Options</a></li>
+<li><a href="#orgbafd103">7. Lookback Option</a></li>
+<li><a href="#orgb90d125">8. Monte Carlo Setup</a></li>
+<li><a href="#org243a2a8">9. Monte Carlo Setup</a></li>
+<li><a href="#orgb777a93">10. Parting Note</a></li>
+<li><a href="#orgae8c56f">11. Derivation of Stock Price at Time T \(S_T\)</a></li>
 </ul>
 </div>
 </div>
@@ -75,8 +76,8 @@ There is a revealjs version of this presentation under investments and here: <a 
 </p>
 </blockquote>
 
-<div id="outline-container-org2a9e6e3" class="outline-2">
-<h2 id="org2a9e6e3"><span class="section-number-2">1.</span> Monte Carlo: Solution by Simulation</h2>
+<div id="outline-container-org241f3a0" class="outline-2">
+<h2 id="org241f3a0"><span class="section-number-2">1.</span> Monte Carlo: Solution by Simulation</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The goal of this presentation is to show you when to use Monte Carlo and to provide a couple of interactive examples with visualizations.
@@ -88,8 +89,8 @@ The goal of this presentation is to show you when to use Monte Carlo and to prov
 </div>
 </div>
 
-<div id="outline-container-orge974a5a" class="outline-2">
-<h2 id="orge974a5a"><span class="section-number-2">2.</span> Monte Carlo and Analytic Solutions</h2>
+<div id="outline-container-org8314cf2" class="outline-2">
+<h2 id="org8314cf2"><span class="section-number-2">2.</span> Monte Carlo and Analytic Solutions</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 When an analytic solution is available, you should generally use it. 
@@ -103,8 +104,8 @@ When an analytic solution is available, you should generally use it.
 </div>
 </div>
 
-<div id="outline-container-org7992412" class="outline-2">
-<h2 id="org7992412"><span class="section-number-2">3.</span> Example: European Option Pricing</h2>
+<div id="outline-container-org35808ad" class="outline-2">
+<h2 id="org35808ad"><span class="section-number-2">3.</span> Example: European Option Pricing</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Assuming a stockprice follows a <a href="https://en.wikipedia.org/wiki/Geometric_Brownian_motion">geometric Brownian Motion</a>, then at time \(T\) in the future we have: 
@@ -126,8 +127,8 @@ where \(S_0\) is the stock price today, \(\mu\) and \(\sigma\) are the stock's d
 </div>
 </div>
 
-<div id="outline-container-org4139390" class="outline-2">
-<h2 id="org4139390"><span class="section-number-2">4.</span> Drift and Volatility</h2>
+<div id="outline-container-org6efc4f1" class="outline-2">
+<h2 id="org6efc4f1"><span class="section-number-2">4.</span> Drift and Volatility</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 We estimate volatility \(\sigma\) using historical or [maybe dead link &#x2013;&gt;] <a href="https://micfm.shinyapps.io/risk_future_past_mobile">forward looking measures</a>.  However, in <a href="https://financial-education.github.io/black_scholes/">a Black-Scholes world</a> the market is complete, and so we can set the drift \(\mu\) equal to the risk free rate \(r_f\).  
@@ -149,8 +150,8 @@ where \(N(0, 1)\) is a random draw from a standard Normal distribution.
 
 
 
-<div id="outline-container-orgf016ec7" class="outline-2">
-<h2 id="orgf016ec7"><span class="section-number-2">5.</span> Interactive App</h2>
+<div id="outline-container-org8af7a78" class="outline-2">
+<h2 id="org8af7a78"><span class="section-number-2">5.</span> Interactive App</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 In both cases we make the same assumptions, namely the stock follows geometric Brownian Motion, \(\sigma\) is a constant, and the <a href="https://en.wikipedia.org/wiki/Complete_market">market is complete.</a> Therefore the Monte Carlo estimate should be equal to the Black-Scholes analytic solution, which is: \(C_0 = S_0N(d_1) - Xe^{-rT}N(d_2)\)
@@ -176,15 +177,13 @@ In both cases we make the same assumptions, namely the stock follows geometric B
 <li>On the next slide we calculate the value of a European call option by both the Black-Scholes formula and Monte Carlo.</li>
 </ul>
 
-<p>
-[TODO: Push app online and here]
-</p>
+<iframe src="https://ztranche.com/investments/monte_carlo/app1/" height="600" width="700" title="App1"></iframe>
 </div>
 </div>
 
 
-<div id="outline-container-org701b8a1" class="outline-2">
-<h2 id="org701b8a1"><span class="section-number-2">6.</span> Pricing Path-Dependent Options</h2>
+<div id="outline-container-org9d76f68" class="outline-2">
+<h2 id="org9d76f68"><span class="section-number-2">6.</span> Pricing Path-Dependent Options</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 As mentioned, Monte Carlo makes sense when an analytic solution is unavailable or its solution is intractable.  This is often the case for <b>path-dependent</b> options, where payoffs are a function of the stock prices over some interval&#x2014;the path the stock took to get to its present price.  Examples of such options are:
@@ -202,8 +201,8 @@ As mentioned, Monte Carlo makes sense when an analytic solution is unavailable o
 
 
 
-<div id="outline-container-org5cca14e" class="outline-2">
-<h2 id="org5cca14e"><span class="section-number-2">7.</span> Lookback Option</h2>
+<div id="outline-container-orgbafd103" class="outline-2">
+<h2 id="orgbafd103"><span class="section-number-2">7.</span> Lookback Option</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Say an option pays the difference between the <b>maximum</b> price of a security over a time period and a set strike price.  So the payoff is: \(max(S_{max} - X, 0)\) where \(S_{max}\) is the maximum security price over a set interval.  This is a European lookback call option with a fixed strike price (you can also let the strike price float).  
@@ -226,8 +225,8 @@ Say an option pays the difference between the <b>maximum</b> price of a security
 </div>
 
 
-<div id="outline-container-orgafad9d9" class="outline-2">
-<h2 id="orgafad9d9"><span class="section-number-2">8.</span> Monte Carlo Setup</h2>
+<div id="outline-container-orgb90d125" class="outline-2">
+<h2 id="orgb90d125"><span class="section-number-2">8.</span> Monte Carlo Setup</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Given the parameters \(\mu_S\), \(\kappa\), and \(\sigma\), and a starting price, we'll simulate various price paths.  We'll calculate the maximum over each of these price paths, which will give us the lookback call option payoff given the path.  Taking the average value and discounting at the risk-free rate (assuming a complete market) affords the lookback call option's value.  
@@ -239,8 +238,8 @@ Given the parameters \(\mu_S\), \(\kappa\), and \(\sigma\), and a starting price
 </div>
 </div>
 
-<div id="outline-container-org7d71275" class="outline-2">
-<h2 id="org7d71275"><span class="section-number-2">9.</span> Monte Carlo Setup</h2>
+<div id="outline-container-org243a2a8" class="outline-2">
+<h2 id="org243a2a8"><span class="section-number-2">9.</span> Monte Carlo Setup</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 In the next slide we'll price a lookback call with 1 year to maturity, on a security with a \$35 price today. The strike price is \$37, and we will simulate a price path with 252 points (one for each trading day of the year).  For each 
@@ -250,16 +249,13 @@ In the next slide we'll price a lookback call with 1 year to maturity, on a secu
 <li>You can set the \(\kappa\), \(\mu\), and \(\sigma\) parameters using the slider inputs.  When you change any slider the Monte Carlo valuation is re-run.</li>
 </ul>
 
-
-<p>
-[TODO: push path dependent option app online and insert here]
-</p>
+<iframe src="https://ztranche.com/investments/monte_carlo/app2/" height="600" width="700" title="App2"></iframe>
 </div>
 </div>
 
 
-<div id="outline-container-orgffaf986" class="outline-2">
-<h2 id="orgffaf986"><span class="section-number-2">10.</span> Parting Note</h2>
+<div id="outline-container-orgb777a93" class="outline-2">
+<h2 id="orgb777a93"><span class="section-number-2">10.</span> Parting Note</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 Monte Carlo is a good approach in the case where we don't have a closed-form solution give a particular underlying process.  However what if we do have a closed-form solution for a <b>continuous-time</b> process, but the lookback option samples the price at discrete points?
@@ -282,10 +278,18 @@ So in this case, despite having a closed-form solution for a continuous process,
 </ul>
 </div>
 </div>
+
+
+<div id="outline-container-orgae8c56f" class="outline-2">
+<h2 id="orgae8c56f"><span class="section-number-2">11.</span> Derivation of Stock Price at Time T \(S_T\)</h2>
+<div class="outline-text-2" id="text-11">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HOSf-lk9JOw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Matt Brigida, Ph.D.</p>
-<p class="date">Created: 2024-07-15 Mon 20:47</p>
+<p class="date">Created: 2024-07-19 Fri 09:33</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

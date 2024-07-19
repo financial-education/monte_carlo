@@ -63,7 +63,9 @@ $C_0$ are $S_0$ are the values of the call option and underlying stock at time 0
 #+end_comment
 -  On the next slide we calculate the value of a European call option by both the Black-Scholes formula and Monte Carlo.  
 
-[TODO: Push app online and here]
+#+begin_export html
+<iframe src="https://ztranche.com/investments/monte_carlo/app1/" height="600" width="700" title="App1"></iframe>
+#+end_export
 
 #+begin_comment
 ```{r echo = FALSE}
@@ -150,8 +152,9 @@ In the next slide we'll price a lookback call with 1 year to maturity, on a secu
 
 -  You can set the $\kappa$, $\mu$, and $\sigma$ parameters using the slider inputs.  When you change any slider the Monte Carlo valuation is re-run.
 
-
-[TODO: push path dependent option app online and insert here]
+#+begin_export html
+<iframe src="https://ztranche.com/investments/monte_carlo/app2/" height="600" width="700" title="App2"></iframe>
+#+end_export
 
 #+begin_comment
 ```{r echo = FALSE}
@@ -234,5 +237,10 @@ So in this case, despite having a closed-form solution for a continuous process,
 -  In sum, a good understanding of the problem is necessary to choose the most appropriate solution method. 
 
  
+** Derivation of Stock Price at Time T $S_T$
+
+#+begin_export html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HOSf-lk9JOw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#+end_export
 
  
